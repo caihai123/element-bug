@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="//unpkg.com/vue/dist/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"/>
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <style>
+    .box{
+  display:-webkit-box;
+-webkit-line-clamp:3;
+-webkit-box-orient:vertical;
+overflow:hidden;
+}
+    </style>
+  </head>
+  <body>
+      <div id='app'>
+        <el-table :data="tableData" style="width: 100%">
+            <el-table-column prop="date" label="日期" width="180"></el-table-column>
+            <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+            <el-table-column label="地址">
+                <div class="box" slot-scope="scope">
+                    {{scope.row.address}}
+                </div>
+            </el-table-column>
+            <el-table-column fixed='right' label="操作">
+                <template slot-scope="scope">
+                    <el-button type="text">详情</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+      </div>
+      <script>
+          new Vue({
+              el:"#app",
+              data:function(){
+                  return {
+                    tableData: [{
+                    date: "2019-05-08",
+                    name: "蔡海",
+                    address: "很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。"
+                },{
+                    date: "2019-05-08",
+                    name: "蔡海",
+                    address: "很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。很多文本,但是我想最多让他显示三行。"
+                }]
+                  }
+              }
+          })
+      </script>
+  </body>
+</html>
